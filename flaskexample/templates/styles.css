@@ -1,0 +1,156 @@
+            /* MAIN STYLES */
+            * { margin: 0; padding: 0; border: none; }
+            html {
+                height: 100%;
+            }
+            h1 {
+                background-color: gray;
+                margin: 0;
+                padding: 0;
+            }
+            span.span1 {
+                color: white;
+                font-family: EB Garamond;
+                font-variant: small-caps;
+                padding-right: 0.05em;
+                font-size: 42pt;
+            }
+            span.span2 {
+                color: white;
+                font-family: Futura, sans-serif;
+                font-weight: normal;
+                font-style: italic;
+                padding-left: 0.05em;
+                font-size: 37pt;
+            }
+            body {
+                font-family: Futura, sans-serif;
+                background-color: white;
+                height: 100%;
+                background-color: lightgray;
+            }
+            .page {
+                background-color: white;
+                margin: auto;
+                width: 60%;
+                height: auto;
+                overflow: auto;
+                min-height: 100%;
+            }
+            .center {
+                text-align: center;
+            }
+            form, input {
+                font-family: Futura, sans-serif;
+                font-size: 22pt;
+            }
+            /* SUBMIT FORM */
+            input.textbox {
+                text-align: center;
+                font-size: 20pt;
+                border: 2px;
+                border-style: solid;
+                border-color: lightgray;
+                padding: 2px;
+                width: 80%;
+                height: 50px;
+                margin-top: 1px;
+                margin-bottom: 1px;
+            }
+            input.button {
+                background-color: gray;
+                border-color: gray;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 20pt;
+                color: white;
+                padding: 2px;
+                padding-bottom: 5px;
+                width: 30%;
+                height: 40px;
+            }
+            input.button:hover {
+                background-color: lightgray;
+            }
+            input.textbox:hover, input.textbox:focus, input.textbox:active {
+                border: 3px;
+                border-style: solid;
+                border-color: gray;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+
+            /* OUTPUT */
+            div.output_container {
+                margin: auto;
+                width: 70%;
+                font-size: 20pt;
+            }
+            div.output_article {
+                display: inline-block;
+            }
+            div.output_class {
+                display: inline-block;
+                width: 6em;
+                border-radius: 5px;
+                background-color: #{{output.color}};
+            }
+            a.output_class {
+                text-decoration: none;
+                color: black;
+                display: inline-block;
+                width: 6em;
+                border-radius: 10px;
+                background-color: #{{output.color}};
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+            a.output_class:hover {
+                border-color: #{{output.textColor}};
+                border-style: solid;
+                border-width: 2px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            div.output_flavor {
+                display: inline-block;
+                font-size: 12pt;
+            }
+        /* for posterity, how to get flex boxes to auto size in a div table
+            div.output {
+                display: flex;
+                margin: auto;
+                padding: 5px;
+            }
+
+            div.output_header {
+                font-weight: bold;
+                width: 45%;
+                flex: 1;
+            }
+            div.output_value {
+                font-weight: normal;
+                width: 45%;
+                flex: 1;
+            }
+        */
+            a.normallink {
+                text-decoration: none;
+                color: #{{output.textColor}};
+            }
+            a.normallink:hover {
+                text-decoration: underline;
+            }
+            /* METERS */
+            meter {
+                background: none;
+                border-style: solid;
+                border-width: 1px;
+            }
+
+            /* RESPONSIVE */
+            @media only screen and (max-width: 1000px) {
+                .page {
+                    width: 90%;
+                }
+            }

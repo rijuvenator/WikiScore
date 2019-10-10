@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WikiScore</title>
+
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=EB+Garamond" />
+        <link rel="shortcut icon" type="image/png" href="/static/favicon.png"/>
+
+        <style>
+{{STYLESHEET}}
+        </style>
+
+
+    </head>
+    <body>
+        <div class='page'>
+        <br>
+        <div class='center'>
+            <object type="image/svg+xml" data="/static/wikipedialogo.svg">
+                  Your browser does not support SVG
+            </object>
+        </div>
+
+        <div class='center'>
+            <h1 style='padding-top: 0'>
+                <span class='span1'>Wiki</span><span class='span2'>Score</span>
+            </h1>
+        </div>
+        <br>
+
+        <div class='center'>
+            <form method="POST">
+                Enter Article Title:
+                <br>
+                <br>
+                <input type="text" name="ArticleTitle" class='textbox'>
+                <br>
+                <br>
+                <input type="submit" value="Submit" class='button'>
+            </form>
+        </div>
+
+        <br>
+
+        {% if output.title == '-' %}
+        <div class='center'>
+            Don't know where to start? Check out the list of <a class=normallink style='color: dodgerblue;' href='https://en.wikipedia.org/wiki/Category:Unassessed_articles'>unassessed Wikipedia articles</a>
+        </div>
+        {% elif output.error == 'ERROR' %}
+        <div class='center'>Something went wrong getting &quot;{{output.title}}&quot;</div>
+        {% else %}
+        <div class='center output_container'>
+            <div class='output_article'>
+                <a class=normallink href='https://en.wikipedia.org/wiki?curid={{output.id}}'>{{output.title}}</a>
+            </div>
+            <br><br>
+            <a class='output_class' href='https://en.wikipedia.org/wiki/Wikipedia:Content_assessment'>{{output.class}}</a>
+            <br><br>
+            <div class='output_flavor' style='width: 100%; display: inline-block; font-size: 12pt;'>
+                    The <i>Wikipedia Article Classifier</i> has rated this article as
+                    {{output.flavorText|safe}}
+                    Head to the <a class=normallink href='https://en.wikipedia.org/wiki?curid={{output.talk}}'>talk page</a> to start a discussion.
+            </div>
+        </div>
+        {% endif %}
+
+        </div>
+    </body>
+</html>
+
+<!--
+            <div class='output'>
+                <div class="output output_header">Title:</div>
+                <div class="output output_value" ><a href=https://en.wikipedia.org/wiki?curid={{output.id}}>{{output.title}}</a></div>
+            </div>
+            <div class='output'>
+                <div class="output output_header">Assessment:</div>
+                <div class="output output_value" ><div style='width: 6em; border-radius: 5px; background-color:#{{output.color}}'>{{output.class}}</div></div>
+            </div>
+-->
